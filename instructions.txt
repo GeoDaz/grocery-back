@@ -1,0 +1,4 @@
+As you can see, I've created a nestjs application.
+This is an API that provides data to the nextjs application. It allows you to create, read, update, and delete groceries.
+It manages the user authentication and authorization, and their addition to the grocery list.
+It uses Prisma as an ORM and MongoDB as a database.
