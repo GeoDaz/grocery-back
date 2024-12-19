@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { GroceryController } from './grocery.controller';
-import { GroceryModule } from './grocery.module';
-import { GroceryService } from './grocery.service';
+import { GroceryModule } from '../modules/grocery.module';
+import { GroceryRepository } from '../repositories/grocery.repository';
 
 describe('GroceryController', () => {
   let groceryController: GroceryController;
@@ -10,15 +10,21 @@ describe('GroceryController', () => {
     const grocery: TestingModule = await Test.createTestingModule({
       imports: [GroceryModule],
       controllers: [GroceryController],
-      providers: [GroceryService],
+      providers: [GroceryRepository],
     }).compile();
 
     groceryController = grocery.get<GroceryController>(GroceryController);
   });
 
-  describe('getAllGroceries', () => {
+  describe('getAll', () => {
     it('should return a void array', () => {
-      expect(groceryController.getAllGroceries()).toBe([]);
+      expect(groceryController.getAll()).toBe([]);
+    });
+  });
+
+  describe('getById', () => {
+    it('should return null', () => {
+      expect(groceryController.getById('1')).toBe(null);
     });
   });
 });

@@ -1,0 +1,8 @@
+model Item {
+  id    String @id @default(uuid())
+  quantity Int
+  groceryId String
+  grocery Grocery @relation(fields: [groceryId], references: [id])
+  groceryListId String
+  groceryList GroceryList @relation(fields: [groceryListId], references: [id])
+}

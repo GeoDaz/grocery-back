@@ -1,0 +1,7 @@
+model Grocery {
+  id    String @id @default(uuid())
+  name  String
+  description String
+  category String
+  items Item[]
+}
